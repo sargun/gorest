@@ -15,7 +15,7 @@ before_install:
   - echo exit 101 | sudo tee /usr/sbin/policy-rc.d
   - sudo chmod +x /usr/sbin/policy-rc.d
   - sudo apt-get update
-  - sudo RUNLEVEL=1 apt-get install -y user-mode-linux uml-utilities lxc lxc-docker aufs-tools cgroup-lite
+  - sudo RUNLEVEL=1 apt-get install -y user-mode-linux uml-utilities lxc lxc-docker aufs-tools cgroup-lite slirp iptables bridge-utils
   - sudo mkdir -p /var/lib/docker
   - echo exit 101 | sudo tee /usr/sbin/policy-rc.d
   - sudo chmod +x /usr/sbin/policy-rc.d
