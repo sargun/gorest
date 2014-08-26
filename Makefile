@@ -17,5 +17,4 @@ clean:
 	go clean .
 
 docker:
-	linux mem=2G rootfstype=hostfs rw eth0=slirp,,/usr/bin/slirp-fullbolt init=$(pwd)/uml.sh WORKDIR=$(pwd) HOME=$HOME
-  
+	linux mem=2G rootfstype=hostfs rw eth0=slirp,,/usr/bin/slirp-fullbolt init=$(pwd)/uml.sh WORKDIR=$(shell pwd) HOME=$(shell echo $HOME)
