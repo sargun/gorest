@@ -3,7 +3,7 @@ APP=gorest
 VERSION=$(shell git describe --all --long)
 BUILD_OUT=build/${VERSION}
 
-.PHONY: all test clean build
+.PHONY: all test clean build integration
 
 all: clean test build integration
 
