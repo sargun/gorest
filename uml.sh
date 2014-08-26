@@ -38,6 +38,9 @@ mount -t sysfs none /sys
 mkdir -p /var/run
 mount -t tmpfs none /var/run
 
+# mount /var/lib/docker with a tmpfs
+mount -t tmpfs none /var/lib/docker
+
 # takes the pain out of cgroups
 cgroups-mount
 
@@ -61,4 +64,4 @@ docker -d -s vfs --iptables=false &
 sleep 5
 
 # Use docker
-docker run ubuntu /bin/echo hello world
+docker run ubuntu:14.04 /bin/echo hello world
