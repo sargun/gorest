@@ -50,7 +50,7 @@ mount -t tmpfs none /var/tmp/kernel
 #mkdir -p /var/tmp/kernel/lib/modules
 #cp -r /usr/lib/uml/modules/* /var/tmp/kernel/lib/modules
 mount --bind /usr/lib/uml/modules/ /lib/modules
-
+ls -lt /usr/lib/uml/modules/
 # load modules for bridging
 #modprobe -d /var/tmp/kernel bridge
 modprobe bridge
