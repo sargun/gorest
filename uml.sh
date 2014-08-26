@@ -44,18 +44,6 @@ cgroups-mount
 # mount /var/lib/docker with a tmpfs
 mount -t tmpfs none /var/lib/docker
 
-# Staging area for kernel:
-mkdir -p /var/tmp/kernel
-mount -t tmpfs none /var/tmp/kernel
-#mkdir -p /var/tmp/kernel/lib/modules
-#cp -r /usr/lib/uml/modules/* /var/tmp/kernel/lib/modules
-mount --bind /usr/lib/uml/modules/ /lib/modules
-ls -lt /usr/lib/uml/modules/
-# load modules for bridging
-#modprobe -d /var/tmp/kernel bridge
-modprobe bridge
-
-
 # enable ipv4 forwarding for docker
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
