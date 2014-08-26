@@ -16,13 +16,9 @@ build:
 clean:
 	go clean .
 
-root:
-	dd if=/dev/zero of=root bs=1M count=1000
-	yes | mkfs.ext4 root 
-
 kernel64-3.15.10:
 	xz -k -d kernel64-3.15.10.xz
 	chmod 755 kernel64-3.15.10
 
-docker: kernel64-3.15.10 root
-	./kernel64-3.15.10 mem=2G rootfstype=hostfs rw ubda=root eth0=slirp,,/usr/bin/slirp-fullbolt init=$(shell pwd)/uml.sh WORKDIR=$(shell pwd) HOME=$(shell echo $HOME)
+docker: kernel64-3.15.10
+	sudo ./kernel64-3.15.10 mem=2G rootfstype=hostfs rw eth0=slirp,,/usr/bin/slirp-fullbolt init=$(shell pwd)/uml.sh WORKDIR=$(shell pwd) HOME=$(shell echo $HOME)

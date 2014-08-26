@@ -41,14 +41,6 @@ mount -t tmpfs none /var/run
 # takes the pain out of cgroups
 cgroups-mount
 
-# mount /var/lib/docker with a tmpfs
-mkdir -p /var/run/dev
-cd /var/run/dev
-MAKEDEV ubd
-mount ubda /var/lib/docker
-cd $WORKDIR
-# mount -t tmpfs none /var/lib/docker
-
 # enable ipv4 forwarding for docker
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
