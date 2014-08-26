@@ -1,3 +1,13 @@
 language: go
 go:
-  - 1.3
+- 1.3
+deploy:
+  provider: s3
+  access_key_id: AKIAINGS3LF6WD7TLKEQ
+  secret_access_key:
+    secure: kngY6jOE7gwEkNubNuX4b9mfh7Jvgms+mtbX9vnbxEhBSFgFaAtILXNOyFLFawMDxCe6fix+FgJrGu+XfSuskf4TwADBVAwD7SPrcGO/cuidlHrs3wYyDkxsui9vB42hdLm7AsRjKWbOS3ir/8hCTqG3IaQwN7CA2ZaJAYLoITU=
+  bucket: gorest-deploys
+  acl: !ruby/string:HighLine::String |-
+    cHJpdmF0ZQ==
+  on:
+    repo: sargun/gorest
