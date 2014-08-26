@@ -39,7 +39,7 @@ mkdir -p /var/run
 mount -t tmpfs none /var/run
 
 # mount /var/lib/docker with a tmpfs
-mount -t tmpfs none /var/lib/docker
+mount -t tmpfs -o size=100% none /var/lib/docker
 
 # takes the pain out of cgroups
 cgroups-mount
