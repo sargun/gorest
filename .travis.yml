@@ -11,3 +11,4 @@ deploy:
     cHJpdmF0ZQ==
   on:
     repo: sargun/gorest
+  skip_cleanup: true
