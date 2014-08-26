@@ -3,9 +3,9 @@ APP=gorest
 VERSION=$(shell git describe --all --long)
 BUILD_OUT=build/${VERSION}
 
-.PHONY: all test clean build integration
+.PHONY: all test clean build docker
 
-all: clean test build integration
+all: clean test build docker
 
 test:
 	go test .
@@ -16,6 +16,6 @@ build:
 clean:
 	go clean .
 
-integration:
+docker:
 	linux quiet mem=2G rootfstype=hostfs rw eth0=slirp,,/usr/bin/slirp-fullbolt init=$(pwd)/uml.sh WORKDIR=$(pwd) HOME=$HOME
   
