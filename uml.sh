@@ -61,7 +61,8 @@ echo 'nameserver 8.8.8.8' > /run/resolvconf/resolv.conf
 mount --bind /run/resolvconf/resolv.conf /etc/resolv.conf
 
 # Setup debian debotstrap:
-debootstrap trusty /mnt/vm
-cp container.json /mnt/vm
+debootstrap trusty /tmp/vm
+cp container.json /tmp/vm
+cd /tmp/vm
 /tmp/gopath/bin/nsinit exec hostname
 
