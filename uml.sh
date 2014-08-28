@@ -39,8 +39,7 @@ mkdir -p /var/run
 mount -t tmpfs none /var/run
 
 # mount /var/lib/docker with a tmpfs
-mkdir -p /tmp/vm
-mount -t tmpfs -o size=100% none /tmp/vm
+mount -t tmpfs -o size=100% none /tmp/
 
 # takes the pain out of cgroups
 cgroups-mount
@@ -61,6 +60,7 @@ echo 'nameserver 8.8.8.8' > /run/resolvconf/resolv.conf
 mount --bind /run/resolvconf/resolv.conf /etc/resolv.conf
 
 # Setup debian debotstrap:
+mkdir -p /tmp/vm
 debootstrap trusty /tmp/vm
 cp container.json /tmp/vm
 cd /tmp/vm
