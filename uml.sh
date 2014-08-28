@@ -64,5 +64,5 @@ mkdir -p /tmp/vm
 debootstrap trusty /tmp/vm
 cp container.json /tmp/vm
 cd /tmp/vm
-${WORKDIR}/nsinit exec hostname
+strace -ff ${WORKDIR}/nsinit exec hostname
 
