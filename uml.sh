@@ -39,7 +39,8 @@ mkdir -p /var/run
 mount -t tmpfs none /var/run
 
 # mount /var/lib/docker with a tmpfs
-mount -t tmpfs -o size=100% none /var/lib/docker
+mkdir -p /tmp/vm
+mount -t tmpfs -o size=100% none /tmp/vm
 
 # takes the pain out of cgroups
 cgroups-mount
@@ -59,9 +60,8 @@ mkdir -p /run/resolvconf
 echo 'nameserver 8.8.8.8' > /run/resolvconf/resolv.conf
 mount --bind /run/resolvconf/resolv.conf /etc/resolv.conf
 
-# Start docker daemon
-docker -d --iptables=false &
-sleep 5
+# Setup debian debotstrap:
+debootstrap trusty /mnt/vm
+cp container.json /mnt/vm
+/tmp/gopath/bin/nsinit exec hostname
 
-# Use docker
-docker run ubuntu:14.04 /bin/echo hello world

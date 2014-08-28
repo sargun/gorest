@@ -1,3 +1,6 @@
+env:
+  - GOPATH=/tmp/gopath
+
 language: go
 go:
 - 1.3
@@ -10,14 +13,10 @@ deploy:
   skip_cleanup: true
 
 before_install:
-  - sudo sh -c "wget -qO- https://get.docker.io/gpg | apt-key add -"
-  - sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
   - echo exit 101 | sudo tee /usr/sbin/policy-rc.d
   - sudo chmod +x /usr/sbin/policy-rc.d
   - sudo apt-get update
-  - sudo RUNLEVEL=1 apt-get install -y user-mode-linux uml-utilities lxc lxc-docker aufs-tools cgroup-lite slirp iptables bridge-utils
-  - sudo mkdir -p /var/lib/docker
-  - echo exit 101 | sudo tee /usr/sbin/policy-rc.d
-  - sudo chmod +x /usr/sbin/policy-rc.d
+  - sudo RUNLEVEL=1 apt-get install -y user-mode-linux uml-utilities lxc lxc-docker cgroup-lite slirp iptables bridge-utils golang-src golang-go debootstrap
   - chmod a+x uml.sh 
-
+  - mkdir -p /tmp/gopath
+  - go get github.com/docker/libcontainer/nsinit
