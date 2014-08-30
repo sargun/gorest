@@ -17,7 +17,7 @@ before_install:
   - chmod a+x uml.sh 
   - mkdir -p /tmp/gopath
   - mkdir -p /tmp/root
-  - GOBIN=. go get github.com/docker/libcontainer/nsinit
+  - GOPATH=/tmp/gopath go get github.com/docker/libcontainer/nsinit
   - sudo debootstrap trusty /tmp/root
   - sudo mount --bind /run /tmp/root/run
   - sudo chroot /tmp/root useradd -m foobar

@@ -20,5 +20,5 @@ clean:
 
 container:
 	cd /tmp/root/
-	strace -ff ${WORKDIR}/bin/nsinit exec /bin/echo "Hello world"
+	strace -ff /tmp/gopath/bin/nsinit exec /bin/echo "Hello world"
 	
