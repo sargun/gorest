@@ -25,7 +25,7 @@ mount -t proc none /proc
 
 # pseudo-terminal devices
 mkdir -p /dev/pts
-mount -t devpts none /dev/pts
+mount -t devpts devpts /dev/pts
 
 # shared memory a good idea
 mkdir -p /dev/shm
