@@ -34,8 +34,6 @@ mount -t tmpfs none /dev/shm
 # sysfs a good idea
 mount -t sysfs none /sys
 
-mount --bind /usr/lib/uml/modules/ /lib/modules
-
 # pidfiles and such like
 mkdir -p /var/run
 mount -t tmpfs none /var/run
