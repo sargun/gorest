@@ -19,8 +19,6 @@ clean:
 	go clean .
 
 container:
-	cp container.json /tmp/root/
 	cd /tmp/root/
-	cp /etc/resolv.conf /mnt/root/etc/resolv.conf
 	strace -ff ${WORKDIR}/bin/nsinit exec /bin/echo "Hello world"
 	
