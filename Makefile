@@ -20,5 +20,5 @@ clean:
 
 container:
 	cd /tmp/root/
-	strace -ff /tmp/gopath/bin/nsinit exec /bin/echo "Hello world"
+	sudo strace -ff /tmp/gopath/bin/nsinit exec /bin/echo "Hello world"
 	
