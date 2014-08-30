@@ -16,4 +16,8 @@ before_install:
   - sudo RUNLEVEL=1 apt-get install -y user-mode-linux uml-utilities lxc cgroup-lite slirp iptables bridge-utils golang-src golang-go debootstrap strace
   - chmod a+x uml.sh 
   - mkdir -p /tmp/gopath
+  - mkdir -p /tmp/root
   - GOBIN=. go get github.com/docker/libcontainer/nsinit
+  - sudo debootstrap trusty /tmp/root
+  - sudo mount --bind /run /tmp/root/run
+  - sudo chroot /tmp/root useradd -m foobar

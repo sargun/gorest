@@ -191,5 +191,5 @@
         }
     ],
     "tty": true,
-    "user": "root"
+    "user": "foobar"
 }
