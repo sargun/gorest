@@ -21,4 +21,4 @@ before_install:
   - sudo debootstrap trusty /tmp/root
   - sudo mount --bind /run /tmp/root/run
   - sudo chroot /tmp/root useradd -m foobar
-  - cp container.json /tmp/root
+  - sudo cp container.json /tmp/root
