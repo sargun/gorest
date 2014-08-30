@@ -34,12 +34,15 @@ mount -t tmpfs none /dev/shm
 # sysfs a good idea
 mount -t sysfs none /sys
 
+mount --bind /usr/lib/uml/modules/ /lib/modules
+
 # pidfiles and such like
 mkdir -p /var/run
 mount -t tmpfs none /var/run
 
 # mount /var/lib/docker with a tmpfs
 mount -t tmpfs -o size=100% none /tmp/
+
 
 # takes the pain out of cgroups
 cgroups-mount
